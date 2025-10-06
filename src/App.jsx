@@ -1,3 +1,4 @@
+import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
@@ -10,9 +11,7 @@ function App() {
         <div className="h-[79vh] ml-[10px] p-4" >
           body
         </div>
-        <div className='bg-white rounded-[10px] mt-[10px] ml-[10px] h-[40px]'>
- جميع الحقوق محفوظة لدى
-        </div>
+        <Footer />
       </div>
     </div>
   );

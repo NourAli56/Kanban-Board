@@ -5,7 +5,7 @@ import { sections } from "../dummyData";
 
 export default function Sidebar() {
   return (
-    <div className="bg-white w-[300px] h-[95vh] m-[10px] rounded-[20px] p-4 flex flex-col">
+    <div className="bg-white w-[300px] h-[96vh] m-[10px] rounded-[20px] p-4 flex flex-col">
       <img src={logo} alt="Logo"  />
       <div className="w-full h-[1px] bg-[#E5E7EB] mt-4" />
       {sections.map((section, index) => (
