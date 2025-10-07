@@ -2,16 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Tailwind base styles (بدون @tailwind) */
+/* Tailwind base styles (Light / Dark handled via class) */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    background-color: #F4F3F4;
-    color: #1a1a1a;
-    font-family: 'Inter', sans-serif;
-    margin: 0;
-    padding: 0;
+  background-color: #F4F3F4; /* Light mode background */
+  color: #1a1a1a;           /* Light mode text */
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Dark mode */
+body.dark {
+  background-color: #2a3243; /* Dark mode background */
+  color: #F4F4F5;           /* Dark mode text */
+}
+
+/* Scrollbar عام */
+body::-webkit-scrollbar {
+  width: 8px; 
+  height: 8px; 
+}
+
+body::-webkit-scrollbar-track {
+  background: #E5E7EB; /* Light mode track */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #A1A1AA; /* Light mode thumb */
+  border-radius: 4px;
+  border: 2px solid #E5E7EB;
+}
+
+/* Dark mode scrollbar */
+body.dark::-webkit-scrollbar-track {
+  background: #1F2937; /* Dark track */
+}
+
+body.dark::-webkit-scrollbar-thumb {
+  background-color: #4B5563; /* Dark thumb */
+  border: 2px solid #1F2937;
+  border-radius: 4px;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #A1A1AA #E5E7EB; /* Light */
+}
+
+body.dark * {
+  scrollbar-color: #4B5563 #1F2937; /* Dark */
 }
 

@@ -6,28 +6,23 @@ import {
   IconNav4,
   IconNav5,
   IconNav6,
-  IconNav7,
 } from './iconsAsSvg';
+import ThemeToggle from './ui/ThemeToggle';
+import { useTheme } from '../context/ThemeContext';
 
 export default function Navbar() {
-  const icons = [
-    IconNav1,
-    IconNav2,
-    IconNav3,
-    IconNav4,
-    IconNav5,
-    IconNav6,
-    IconNav7,
-  ];
+  const { theme } = useTheme();
+  const icons = [IconNav1, IconNav2, IconNav3, IconNav4, IconNav5, IconNav6];
 
   return (
-    <div className="bg-white rounded-[20px] mt-[10px] ml-[10px] h-[60px] flex items-center justify-between px-4">
+    <div className="flex items-center justify-between px-4 mt-2 ml-2 h-[60px] 
+                    rounded-[20px] bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 shadow-sm">
       <InputSearch />
-
+      <ThemeToggle />
       <div className="flex items-center gap-2">
         {icons.map((Icon, index) => (
           <div key={index} className="cursor-pointer">
-            <Icon />
+            <Icon color={theme === "dark" ? "#ffffff" : "#000000"} />
           </div>
         ))}
 
