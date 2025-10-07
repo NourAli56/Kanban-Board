@@ -57,8 +57,8 @@ src/
 
 ### 1. Clone the repository
 bash
-git clone https://github.com/yourusername/my-react-tailwind-app.git
-cd my-react-tailwind-app
+git clone https://github.com/NourAli56/Kanban-Board
+cd Kanban-Board
 
 
 ### 2. Install dependencies
