@@ -1,14 +1,14 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Draggable } from "@hello-pangea/dnd";
 import { useKanban } from "../../context/KanbanContext";
 import TaskCard from "./TaskCard";
 import AddTaskForm from "./AddTaskForm";
-import {  PlusIcon, Trash } from "lucide-react";
+import { PlusIcon, Trash } from "lucide-react";
 
 export default function Column({ column }) {
   const { deleteColumn, getTasksForColumn } = useKanban();
   const [showAdd, setShowAdd] = useState(false);
-  
+
   const columnTasks = getTasksForColumn(column);
 
   return (
@@ -23,20 +23,21 @@ export default function Column({ column }) {
         </button>
       </div>
 
-      {columnTasks.map((task, index) => (
-        <Draggable key={task.id} draggableId={task.id} index={index}>
-          {(provided, snapshot) => (
-            <div
-              ref={provided.innerRef}
-              {...provided.draggableProps}
-              {...provided.dragHandleProps}
-              className={`mb-2 ${snapshot.isDragging ? 'opacity-50' : ''}`}
-            >
-              <TaskCard task={task} columnId={column.id} />
-            </div>
-          )}
-        </Draggable>
-      ))}
+      {columnTasks.length === 0 ? <p className="text-[#8198AF]" >لا يوجد مهام</p> :
+        columnTasks.map((task, index) => (
+          <Draggable key={task.id} draggableId={task.id} index={index}>
+            {(provided, snapshot) => (
+              <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}
+                className={`mb-2 ${snapshot.isDragging ? 'opacity-50' : ''}`}
+              >
+                <TaskCard task={task} columnId={column.id} />
+              </div>
+            )}
+          </Draggable>
+        ))}
 
       {showAdd && <AddTaskForm columnId={column.id} close={() => setShowAdd(false)} />}
 
