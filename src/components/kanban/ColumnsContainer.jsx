@@ -5,7 +5,7 @@ import Column from "./Column";
 
 export default function ColumnsContainer({ containerRef, columns }) {
     return (
-        <div className="overflow-x-auto">
+        <div ref={containerRef} className="overflow-x-auto">
             <div className="flex gap-4 h-[56vh] p-4 min-w-full">
                 {Object.values(columns).map((col) => (
                     <Droppable key={col.id} droppableId={col.id}>
