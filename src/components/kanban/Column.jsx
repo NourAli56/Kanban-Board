@@ -12,7 +12,7 @@ export default function Column({ column }) {
   const columnTasks = getTasksForColumn(column);
 
   return (
-    <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-[16px] min-w-[250px]">
+    <div className="bg-gray-100 dark:bg-gray-800 p-3 rounded-[16px] w-[250px]">
       <div className="flex justify-between items-center mb-2">
         <h3 className="font-semibold text-[#4D637C]">{column.title} ({columnTasks?.length})</h3>
         <button
